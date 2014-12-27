@@ -1,0 +1,6 @@
+build
+buildPlugins
+target
+.idea
+.lazybones
+*.class
