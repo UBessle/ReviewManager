@@ -27,6 +27,7 @@
     <thead sort-header ng-model="ctrl.sort" on-sort="ctrl.reload()">
         <th sortable-column title="Id" property="id"></th><% domainProperties.take(4).each { property -> %>
 		<th sortable-column title="${property.label}" property="${property.name}"></th><% } %>
+		<th>action<th>
         <th>&nbsp;</th>
     </thead>
     <tbody>
@@ -35,6 +36,8 @@
 			<td>{{ ${ renderDisplay(property, 'item')} }}</td><% } %>
             <td>
                 <button crud-button="edit" item="item" ></button>
+            </td>
+            <td>
                 <button crud-button="delete" item="item" after-action="ctrl.reload()"></button>
             </td>
         </tr>

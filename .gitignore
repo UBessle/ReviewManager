@@ -4,3 +4,4 @@ target
 .idea
 .lazybones
 *.class
+*.db

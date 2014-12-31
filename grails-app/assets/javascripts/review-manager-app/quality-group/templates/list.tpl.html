@@ -1,0 +1,65 @@
+<div crud-breadcrumbs="list"></div>
+
+<div class="clearfix">
+	<h2 class="pull-left">QualityGroup List</h2>
+	<div class="pull-right"><button crud-button="create" ></button></div>
+</div>
+<div flash-message ></div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title"><i class="fa fa-filter"></i> Filter List</h3>
+  </div>
+  <div class="panel-body">
+<div class="row">
+<form class="form">
+	<div class="form-group col-md-3">
+		<label for="filter.code">Code</label>
+		<input type="text" class='form-control' ng-model="ctrl.filter.code" ng-model-options="{ debounce: 300 }"  />
+    </div>
+	<div class="form-group col-md-3">
+		<label for="filter.characteristic">Characteristic</label>
+		<input type="text" class='form-control' ng-model="ctrl.filter.characteristic" ng-model-options="{ debounce: 300 }"  />
+    </div>
+	<div class="form-group col-md-3">
+		<label for="filter.subCharacteristic">Sub Characteristic</label>
+		<input type="text" class='form-control' ng-model="ctrl.filter.subCharacteristic" ng-model-options="{ debounce: 300 }"  />
+    </div>
+	<div class="form-group col-md-3">
+		<label for="filter.definition">Definition</label>
+		<input type="text" class='form-control' ng-model="ctrl.filter.definition" ng-model-options="{ debounce: 300 }"  />
+    </div>
+</form>
+</div>
+  </div>
+</div>
+
+<table id="list" class="table table-striped table-bordered table-hover">
+
+    <thead sort-header ng-model="ctrl.sort" on-sort="ctrl.reload()">
+        <th sortable-column title="Id" property="id"></th>
+		<th sortable-column title="Code" property="code"></th>
+		<th sortable-column title="Characteristic" property="characteristic"></th>
+		<th sortable-column title="Sub Characteristic" property="subCharacteristic"></th>
+		<th sortable-column title="Definition" property="definition"></th>
+        <th>action</th>
+        <th>&nbsp;</th>
+    </thead>
+    <tbody>
+        <tr class="animate-repeat" ng-repeat="item in ctrl.qualityGroupList">
+            <td><a href="#/show/{{item.id}}">{{item.id}}</a></td>
+			<td>{{ item.code }}</td>
+			<td>{{ item.characteristic }}</td>
+			<td>{{ item.subCharacteristic }}</td>
+			<td>{{ item.definition }}</td>
+            <td>
+                <button crud-button="edit" item="item" ></button>
+            </td>
+            <td>
+                <button crud-button="delete" item="item" after-action="ctrl.reload()"></button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div pagination total-items="ctrl.qualityGroupList.getTotalCount()" items-per-page="ctrl.pageSize" ng-model="ctrl.page" ng-change="ctrl.load()"></div>

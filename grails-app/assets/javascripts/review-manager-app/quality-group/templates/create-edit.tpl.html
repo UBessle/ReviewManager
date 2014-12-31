@@ -1,0 +1,32 @@
+<div crud-breadcrumbs="{{ctrl.qualityGroup.id ? 'edit' : 'create'}}"></div>
+<h2>
+    <span ng-hide="ctrl.qualityGroup.id">Create QualityGroup</span>
+    <span ng-show="ctrl.qualityGroup.id">Edit QualityGroup</span>
+</h2>
+
+<div flash-message ></div>
+
+<form name="form" class="form-horizontal" role="form" novalidate> 
+	
+	<div field-container label="Code" invalid="form.code.$invalid">
+		<input name="code" type="text" class='form-control' ng-model="ctrl.qualityGroup.code" required  />
+	</div>
+	
+	<div field-container label="Characteristic" invalid="form.characteristic.$invalid">
+		<input name="characteristic" type="text" class='form-control' ng-model="ctrl.qualityGroup.characteristic" required  />
+	</div>
+	
+	<div field-container label="Sub Characteristic" invalid="form.subCharacteristic.$invalid">
+		<input name="subCharacteristic" type="text" class='form-control' ng-model="ctrl.qualityGroup.subCharacteristic" required  />
+	</div>
+	
+	<div field-container label="Definition" invalid="form.definition.$invalid">
+		<input name="definition" type="text" class='form-control' ng-model="ctrl.qualityGroup.definition" required  />
+	</div>
+
+    <div>
+        <button crud-button="save" item="ctrl.qualityGroup" is-disabled="form.$invalid"></button>
+        <span ng-if="ctrl.qualityGroup.id"><button crud-button="delete" item="ctrl.qualityGroup"></button></span>
+    </div>
+
+</form>

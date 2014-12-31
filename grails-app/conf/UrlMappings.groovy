@@ -2,7 +2,9 @@ class UrlMappings {
 
 	static mappings = {
 
-        		'/review'(view: 'review')
+        				'/qualityGroup'(view: 'qualityGroup')
+		'/api/qualityGroup'(resources: 'qualityGroup')
+'/review'(view: 'review')
 		'/api/review'(resources: 'review')
 "/$controller/$action?/$id?(.$format)?"{
             constraints {
