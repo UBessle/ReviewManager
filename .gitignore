@@ -2,6 +2,7 @@ build
 buildPlugins
 target
 .idea
+*.iml
 .gradle
 .lazybones
 *.class
