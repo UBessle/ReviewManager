@@ -2,6 +2,7 @@ build
 buildPlugins
 target
 .idea
+.gradle
 .lazybones
 *.class
 *.db
