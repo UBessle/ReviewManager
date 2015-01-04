@@ -12,6 +12,7 @@ class ReviewEditPage extends Page {
     static content = {
 		companyField {$("input[ng-model='ctrl.review.company']")}
 		projectNameField {$("input[ng-model='ctrl.review.projectName']")}
+		requirementsField {$("input[ng-model='ctrl.review.requirements']")}
         saveButton { $('button[crud-button="save"]') }
     }
 

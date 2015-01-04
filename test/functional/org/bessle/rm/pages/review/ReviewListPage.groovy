@@ -12,9 +12,11 @@ class ReviewListPage extends Page {
     static content = {
 		companyFilter {$("input[ng-model='ctrl.filter.company']")}
 		projectNameFilter {$("input[ng-model='ctrl.filter.projectName']")}
+		requirementsFilter {$("input[ng-model='ctrl.filter.requirements']")}
 	
 		companySort { $("table#list th[property='company']") }
 		projectNameSort { $("table#list th[property='projectName']") }
+		requirementsSort { $("table#list th[property='requirements']") }
     
 	    createButton { $("button[crud-button='create']") }
         successMessage { $(".alert-success") }

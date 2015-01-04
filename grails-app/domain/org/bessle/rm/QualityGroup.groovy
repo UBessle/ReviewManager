@@ -12,4 +12,8 @@ class QualityGroup {
         subCharacteristic maxSize: 20
         definition maxSize: 1000
     }
+
+    String toString() {
+        return "${code} - ${characteristic}/${subCharacteristic}"
+    }
 }

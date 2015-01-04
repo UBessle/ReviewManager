@@ -2,7 +2,19 @@ class UrlMappings {
 
 	static mappings = {
 
-        				'/qualityGroup'(view: 'qualityGroup')
+        																		'/review'(view: 'review')
+		'/api/review'(resources: 'review')
+'/requirement'(view: 'requirement')
+		'/api/requirement'(resources: 'requirement')
+'/scenario'(view: 'scenario')
+		'/api/scenario'(resources: 'scenario')
+'/review'(view: 'review')
+		'/api/review'(resources: 'review')
+'/requirement'(view: 'requirement')
+		'/api/requirement'(resources: 'requirement')
+'/scenario'(view: 'scenario')
+		'/api/scenario'(resources: 'scenario')
+'/qualityGroup'(view: 'qualityGroup')
 		'/api/qualityGroup'(resources: 'qualityGroup')
 '/review'(view: 'review')
 		'/api/review'(resources: 'review')

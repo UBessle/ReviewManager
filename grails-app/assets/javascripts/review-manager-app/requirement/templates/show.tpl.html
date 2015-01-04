@@ -1,0 +1,19 @@
+<div crud-breadcrumbs="show"></div>
+<h2>Show Requirement</h2>
+<div flash-message ></div>
+
+<table class="table table-bordered table-striped">
+    <tr display-field label="Review" value="ctrl.requirement.review.toText"></tr>
+    <tr display-field label="Req Number" value="ctrl.requirement.reqNumber"></tr>
+    <tr display-field label="Quality Group" value="ctrl.requirement.qualityGroup.toText"></tr>
+    <tr display-field label="Name" value="ctrl.requirement.name"></tr>
+    <tr display-field label="Description" value="ctrl.requirement.description"></tr>
+    <tr display-field label="Scenarios" value="ctrl.requirement.scenarios"></tr>
+    <tr display-field label="Importance" value="ctrl.requirement.importance"></tr>
+    <tr display-field label="Difficulty" value="ctrl.requirement.difficulty"></tr>
+</table>
+
+<div class="form-actions">
+    <button crud-button="edit" item="ctrl.requirement"></button>
+    <button crud-button="delete" item="ctrl.requirement" ></button>
+</div>

@@ -1,0 +1,24 @@
+<div crud-breadcrumbs="{{ctrl.scenario.id ? 'edit' : 'create'}}"></div>
+<h2>
+    <span ng-hide="ctrl.scenario.id">Create Scenario</span>
+    <span ng-show="ctrl.scenario.id">Edit Scenario</span>
+</h2>
+
+<div flash-message ></div>
+
+<form name="form" class="form-horizontal" role="form" novalidate> 
+	
+	<div field-container label="Requirement" invalid="form.requirement.$invalid">
+		<select name="requirement" class="form-control" ng-model="ctrl.scenario.requirement" required  ng-options="item.toText for item in ctrl.requirementList track by item.id"  ></select>
+	</div>
+	
+	<div field-container label="Scenario" invalid="form.scenario.$invalid">
+		<input name="scenario" type="text" class='form-control' ng-model="ctrl.scenario.scenario" required  />
+	</div>
+
+    <div>
+        <button crud-button="save" item="ctrl.scenario" is-disabled="form.$invalid"></button>
+        <span ng-if="ctrl.scenario.id"><button crud-button="delete" item="ctrl.scenario"></button></span>
+    </div>
+
+</form>

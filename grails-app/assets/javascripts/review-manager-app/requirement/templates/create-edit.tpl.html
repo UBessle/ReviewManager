@@ -1,0 +1,48 @@
+<div crud-breadcrumbs="{{ctrl.requirement.id ? 'edit' : 'create'}}"></div>
+<h2>
+    <span ng-hide="ctrl.requirement.id">Create Requirement</span>
+    <span ng-show="ctrl.requirement.id">Edit Requirement</span>
+</h2>
+
+<div flash-message ></div>
+
+<form name="form" class="form-horizontal" role="form" novalidate> 
+	
+	<div field-container label="Review" invalid="form.review.$invalid">
+		<select name="review" class="form-control" ng-model="ctrl.requirement.review" required  ng-options="item.toText for item in ctrl.reviewList track by item.id"  ></select>
+	</div>
+	
+	<div field-container label="Req Number" invalid="form.reqNumber.$invalid">
+		<input name="reqNumber" type="text" class='form-control' ng-model="ctrl.requirement.reqNumber" required  />
+	</div>
+	
+	<div field-container label="Quality Group" invalid="form.qualityGroup.$invalid">
+		<select name="qualityGroup" class="form-control" ng-model="ctrl.requirement.qualityGroup" required  ng-options="item.toText for item in ctrl.qualityGroupList track by item.id"  ></select>
+	</div>
+	
+	<div field-container label="Name" invalid="form.name.$invalid">
+		<input name="name" type="text" class='form-control' ng-model="ctrl.requirement.name" required  />
+	</div>
+	
+	<div field-container label="Description" invalid="form.description.$invalid">
+		<input name="description" type="text" class='form-control' ng-model="ctrl.requirement.description" required  />
+	</div>
+	
+	<div field-container label="Scenarios" invalid="form.scenarios.$invalid">
+		<input name="scenarios" type="text" class='form-control' ng-model="ctrl.requirement.scenarios" required  />
+	</div>
+	
+	<div field-container label="Importance" invalid="form.importance.$invalid">
+		<input name="importance" type="text" class='form-control' ng-model="ctrl.requirement.importance" required  />
+	</div>
+	
+	<div field-container label="Difficulty" invalid="form.difficulty.$invalid">
+		<input name="difficulty" type="text" class='form-control' ng-model="ctrl.requirement.difficulty" required  />
+	</div>
+
+    <div>
+        <button crud-button="save" item="ctrl.requirement" is-disabled="form.$invalid"></button>
+        <span ng-if="ctrl.requirement.id"><button crud-button="delete" item="ctrl.requirement"></button></span>
+    </div>
+
+</form>

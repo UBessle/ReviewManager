@@ -1,0 +1,20 @@
+<div crud-breadcrumbs="{{ctrl.reviewManager.id ? 'edit' : 'create'}}"></div>
+<h2>
+    <span ng-hide="ctrl.reviewManager.id">Create ReviewManager</span>
+    <span ng-show="ctrl.reviewManager.id">Edit ReviewManager</span>
+</h2>
+
+<div flash-message ></div>
+
+<form name="form" class="form-horizontal" role="form" novalidate> 
+	
+	<div field-container label="Scenario" invalid="form.scenario.$invalid">
+		<input name="scenario" type="text" class='form-control' ng-model="ctrl.reviewManager.scenario" required  />
+	</div>
+
+    <div>
+        <button crud-button="save" item="ctrl.reviewManager" is-disabled="form.$invalid"></button>
+        <span ng-if="ctrl.reviewManager.id"><button crud-button="delete" item="ctrl.reviewManager"></button></span>
+    </div>
+
+</form>
