@@ -42,7 +42,7 @@ function ShowCtrl(requirement) {
 function CreateEditCtrl(requirement, reviewList, qualityGroupList ) {
     var self = this;
 	self.reviewList = reviewList;
-self.qualityGroupList = qualityGroupList;
+    self.qualityGroupList = qualityGroupList;
     self.requirement = requirement;
 }
 

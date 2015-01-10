@@ -20,6 +20,8 @@ class PagedRestfulController<T> extends RestfulController<T> {
 		def results = loadPagedResults(params)
 
 		response.setHeader('Content-Range', getContentRange((int)results.totalCount, params.offset, params.max))
+
+		log.debug("index() method results: ${results}")
 		respond results, formats: ['json', 'html']
 	}
 

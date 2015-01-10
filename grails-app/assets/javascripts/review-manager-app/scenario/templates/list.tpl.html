@@ -18,6 +18,10 @@
 		<select class="form-control" ng-model="ctrl.filter.requirementId" ng-options="item.id as item.toText for item in ctrl.requirementList" ng-model-options="{ debounce: 300 }"  ><option value="">-- Select Requirement--</option></select>
     </div>
 	<div class="form-group col-md-3">
+		<label for="filter.scenarioNr">Scenario Nr</label>
+		<input type="text" class='form-control' ng-model="ctrl.filter.scenarioNr" ng-model-options="{ debounce: 300 }"  />
+    </div>
+	<div class="form-group col-md-3">
 		<label for="filter.scenario">Scenario</label>
 		<input type="text" class='form-control' ng-model="ctrl.filter.scenario" ng-model-options="{ debounce: 300 }"  />
     </div>
@@ -31,6 +35,7 @@
     <thead sort-header ng-model="ctrl.sort" on-sort="ctrl.reload()">
         <th sortable-column title="Id" property="id"></th>
 		<th sortable-column title="Requirement" property="requirement"></th>
+		<th sortable-column title="Scenario Nr" property="scenarioNr"></th>
 		<th sortable-column title="Scenario" property="scenario"></th>
 		<th>action<th>
         <th>&nbsp;</th>
@@ -39,6 +44,7 @@
         <tr class="animate-repeat" ng-repeat="item in ctrl.scenarioList">
             <td><a href="#/show/{{item.id}}">{{item.id}}</a></td>
 			<td>{{ item.requirement.toText }}</td>
+			<td>{{ item.scenarioNr }}</td>
 			<td>{{ item.scenario }}</td>
             <td>
                 <button crud-button="edit" item="item" ></button>

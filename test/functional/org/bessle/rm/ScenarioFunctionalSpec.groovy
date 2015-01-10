@@ -26,6 +26,7 @@ class ScenarioFunctionalSpec extends GebReportingSpec {
 
 		when:
 		requirementField = requirementField.find('option').value()
+		scenarioNrField = scenarioNrField.find('option').value()
 		scenarioField = "Foo"
 			
 		and:
@@ -52,6 +53,12 @@ class ScenarioFunctionalSpec extends GebReportingSpec {
 		requirementSort.classes().contains("asc")
 
 		when:
+		scenarioNrSort.click()
+		
+		then:
+		scenarioNrSort.classes().contains("asc")
+
+		when:
 		scenarioSort.click()
 		
 		then:
@@ -65,6 +72,12 @@ class ScenarioFunctionalSpec extends GebReportingSpec {
 
 		when:
 		requirementFilter = requirementFilter.find('option').value()
+		
+		then:
+		waitFor { rows.size() > 0 }
+
+		when:
+		scenarioNrFilter = scenarioNrFilter.find('option').value()
 		
 		then:
 		waitFor { rows.size() > 0 }
@@ -89,6 +102,7 @@ class ScenarioFunctionalSpec extends GebReportingSpec {
 		
 		when:
 		requirementField = requirementField.find('option').value()
+		scenarioNrField = scenarioNrField.find('option').value()
 		scenarioField = "Foo!"
 		
 		and:

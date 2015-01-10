@@ -15,10 +15,6 @@
 	<div field-container label="Project Name" invalid="form.projectName.$invalid">
 		<input name="projectName" type="text" class='form-control' ng-model="ctrl.review.projectName" required  />
 	</div>
-	
-	<div field-container label="Requirements" invalid="form.requirements.$invalid">
-		<input name="requirements" type="text" class='form-control' ng-model="ctrl.review.requirements" required  />
-	</div>
 
     <div>
         <button crud-button="save" item="ctrl.review" is-disabled="form.$invalid"></button>

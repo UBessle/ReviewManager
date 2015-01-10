@@ -1,25 +1,25 @@
 //= require_self 
 //= require controllers
 //= require services 
-//= require_tree /review-manager-app/review-manager/templates/
+//= require_tree /review-manager-app/architectural-decision/templates/
 
 'use strict';
 
-angular.module('reviewManagerApp.reviewManager', [
+angular.module('reviewManagerApp.architecturalDecision', [
 	'grails', 
-	'reviewManagerApp.reviewManager.controllers', 
-	'reviewManagerApp.reviewManager.services'
+	'reviewManagerApp.architecturalDecision.controllers', 
+	'reviewManagerApp.architecturalDecision.services'
 ])
-.value('defaultCrudResource', 'ReviewManagerResource')
+.value('defaultCrudResource', 'ArchitecturalDecisionResource')
 .config(function($routeProvider) {
 	$routeProvider
         .when('/', {
             controller: 'ListCtrl as ctrl',
             templateUrl: 'list.html',
             resolve: {
-                reviewManagerList: function($route, ReviewManagerResource) {
+                architecturalDecisionList: function($route, ArchitecturalDecisionResource) {
                     var params = $route.current.params;
-                    return ReviewManagerResource.list(params);
+                    return ArchitecturalDecisionResource.list(params);
                 } 
             }
         })
@@ -27,8 +27,8 @@ angular.module('reviewManagerApp.reviewManager', [
             controller: 'CreateEditCtrl as ctrl',
             templateUrl: 'create-edit.html',
             resolve: {
-                reviewManager: function(ReviewManagerResource) {
-                    return ReviewManagerResource.create();
+                architecturalDecision: function(ArchitecturalDecisionResource) {
+                    return ArchitecturalDecisionResource.create();
                 } 
             }
         })
@@ -36,9 +36,9 @@ angular.module('reviewManagerApp.reviewManager', [
             controller: 'CreateEditCtrl as ctrl',
             templateUrl: 'create-edit.html',
             resolve: {
-                reviewManager: function($route, ReviewManagerResource) {
+                architecturalDecision: function($route, ArchitecturalDecisionResource) {
                     var id = $route.current.params.id;
-                    return ReviewManagerResource.get(id);
+                    return ArchitecturalDecisionResource.get(id);
                 } 
             }
         })
@@ -46,9 +46,9 @@ angular.module('reviewManagerApp.reviewManager', [
             controller: 'ShowCtrl as ctrl',
             templateUrl: 'show.html',
             resolve: {
-                reviewManager: function($route, ReviewManagerResource) {
+                architecturalDecision: function($route, ArchitecturalDecisionResource) {
                     var id = $route.current.params.id;
-                    return ReviewManagerResource.get(id);
+                    return ArchitecturalDecisionResource.get(id);
                 }
             }
         })

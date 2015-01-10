@@ -18,6 +18,9 @@ grails.mime.types = [
 ]
 
 grails.converters.json.default.deep = true
+grails.converters.json.circular.reference.behaviour = "INSERT_NULL"
+grails.converters.encoding = "UTF-8"
+
 grails.views.default.codec = "html"
 
 grails.controllers.defaultScope = 'singleton'
@@ -37,7 +40,6 @@ grails {
     }
 }
 
-grails.converters.encoding = "UTF-8"
 grails.scaffolding.templates.domainSuffix = 'Instance'
 
 grails.json.legacy.builder = false
@@ -48,7 +50,6 @@ grails.web.disable.multipart=false
 grails.exceptionresolver.params.exclude = ['password']
 
 grails.hibernate.cache.queries = false
-
 grails.hibernate.pass.readonly = false
 grails.hibernate.osiv.readonly = false
 
@@ -79,6 +80,16 @@ log4j.main = {
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate'
+}
+
+log4j = {
+    appenders {
+        file name:'file', file:'log/ReviewManager.log'
+    }
+
+    root {
+        info 'stdout', 'file'
+    }
 }
 
 grails.databinding.dateFormats = ["yyyy-MM-dd'T'hh:mm:ss'Z'", "yyyy-MM-dd'T'hh:mm:ss.SSS'Z'"]

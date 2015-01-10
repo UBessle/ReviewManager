@@ -12,6 +12,10 @@
 		<select name="requirement" class="form-control" ng-model="ctrl.scenario.requirement" required  ng-options="item.toText for item in ctrl.requirementList track by item.id"  ></select>
 	</div>
 	
+	<div field-container label="Scenario Nr" invalid="form.scenarioNr.$invalid">
+		<input name="scenarioNr" type="text" class='form-control' ng-model="ctrl.scenario.scenarioNr" required  />
+	</div>
+	
 	<div field-container label="Scenario" invalid="form.scenario.$invalid">
 		<input name="scenario" type="text" class='form-control' ng-model="ctrl.scenario.scenario" required  />
 	</div>

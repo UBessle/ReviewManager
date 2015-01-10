@@ -3,7 +3,6 @@ package org.bessle.rm
 class Review {
     String company
     String projectName
-    Set<Requirement> requirements
 
     static hasMany = [requirements:Requirement]
 

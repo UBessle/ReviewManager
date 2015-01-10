@@ -27,7 +27,6 @@ class ReviewFunctionalSpec extends GebReportingSpec {
 		when:
 		companyField = "Foo"
 		projectNameField = "Foo"
-		requirementsField = requirementsField.find('option').value()
 			
 		and:
 		saveButton.click()
@@ -57,12 +56,6 @@ class ReviewFunctionalSpec extends GebReportingSpec {
 		
 		then:
 		projectNameSort.classes().contains("asc")
-
-		when:
-		requirementsSort.click()
-		
-		then:
-		requirementsSort.classes().contains("asc")
 	
 	}
 	
@@ -78,12 +71,6 @@ class ReviewFunctionalSpec extends GebReportingSpec {
 
 		when:
 		projectNameFilter = "Foo"
-		
-		then:
-		waitFor { rows.size() > 0 }
-
-		when:
-		requirementsFilter = requirementsFilter.find('option').value()
 		
 		then:
 		waitFor { rows.size() > 0 }
@@ -103,7 +90,6 @@ class ReviewFunctionalSpec extends GebReportingSpec {
 		when:
 		companyField = "Foo!"
 		projectNameField = "Foo!"
-		requirementsField = requirementsField.find('option').value()
 		
 		and:
 		saveButton.click()

@@ -11,6 +11,7 @@ class ScenarioCreatePage extends Page {
 
     static content = { 
 		requirementField {$("select[ng-model='ctrl.scenario.requirement']")}
+		scenarioNrField {$("input[ng-model='ctrl.scenario.scenarioNr']")}
 		scenarioField {$("input[ng-model='ctrl.scenario.scenario']")}
         saveButton { $('button[crud-button="save"]') }
     }

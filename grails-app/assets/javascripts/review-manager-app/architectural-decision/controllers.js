@@ -1,8 +1,8 @@
 'use strict';
 
-function ListCtrl($scope, ReviewManagerResource, reviewManagerList, pageSize) {
+function ListCtrl($scope, ArchitecturalDecisionResource, architecturalDecisionList, pageSize) {
     var self = this;
-    self.reviewManagerList = reviewManagerList;
+    self.architecturalDecisionList = architecturalDecisionList;
 	
     self.pageSize = pageSize;
     self.page = 1;
@@ -22,8 +22,8 @@ function ListCtrl($scope, ReviewManagerResource, reviewManagerList, pageSize) {
 			params.filter = self.filter
 		}
 
-        ReviewManagerResource.list(params).then(function(items) {
-            self.reviewManagerList = items;
+        ArchitecturalDecisionResource.list(params).then(function(items) {
+            self.architecturalDecisionList = items;
         });
     };
 
@@ -33,18 +33,18 @@ function ListCtrl($scope, ReviewManagerResource, reviewManagerList, pageSize) {
     }
 }
 
-function ShowCtrl(reviewManager) {
+function ShowCtrl(architecturalDecision) {
     var self = this;
-    self.reviewManager = reviewManager;
+    self.architecturalDecision = architecturalDecision;
 };
 
-function CreateEditCtrl(reviewManager ) {
+function CreateEditCtrl(architecturalDecision ) {
     var self = this;
 	
-    self.reviewManager = reviewManager;
+    self.architecturalDecision = architecturalDecision;
 }
 
-angular.module('reviewManagerApp.reviewManager.controllers', [])
+angular.module('reviewManagerApp.architecturalDecision.controllers', [])
     .controller('ListCtrl', ListCtrl)
     .controller('ShowCtrl', ShowCtrl)
     .controller('CreateEditCtrl', CreateEditCtrl);

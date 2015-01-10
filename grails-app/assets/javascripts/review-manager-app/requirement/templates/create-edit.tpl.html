@@ -29,7 +29,21 @@
 	</div>
 	
 	<div field-container label="Scenarios" invalid="form.scenarios.$invalid">
-		<input name="scenarios" type="text" class='form-control' ng-model="ctrl.requirement.scenarios" required  />
+		<table id="scenarioList" class="table table-striped table-bordered table-hover">
+
+			<thead sort-header ng-model="ctrl.sort" on-sort="ctrl.reload()">
+			<th sortable-column title="Id" property="scenarioId"></th>
+			<th sortable-column title="Nr" property="scenarioNr"></th>
+			<th sortable-column title="Scenario" property="scenario"></th>
+			</thead>
+			<tbody>
+			<tr class="animate-repeat" ng-repeat="scenario in ctrl.requirement.scenarios">
+				<td><a href="scenario#/show/{{scenario.id}}">{{scenario.id}}</a></td>
+				<td>{{ scenario.scenarioNr }}</td>
+				<td>{{ scenario.scenario }}</td>
+			</tr>
+			</tbody>
+		</table>
 	</div>
 	
 	<div field-container label="Importance" invalid="form.importance.$invalid">

@@ -1,0 +1,44 @@
+<div crud-breadcrumbs="{{ctrl.architecturalDecision.id ? 'edit' : 'create'}}"></div>
+<h2>
+    <span ng-hide="ctrl.architecturalDecision.id">Create ArchitecturalDecision</span>
+    <span ng-show="ctrl.architecturalDecision.id">Edit ArchitecturalDecision</span>
+</h2>
+
+<div flash-message ></div>
+
+<form name="form" class="form-horizontal" role="form" novalidate> 
+	
+	<div field-container label="Number" invalid="form.number.$invalid">
+		<input name="number" type="text" class='form-control' ng-model="ctrl.architecturalDecision.number" required  />
+	</div>
+	
+	<div field-container label="Name" invalid="form.name.$invalid">
+		<input name="name" type="text" class='form-control' ng-model="ctrl.architecturalDecision.name" required  />
+	</div>
+	
+	<div field-container label="Goal" invalid="form.goal.$invalid">
+		<input name="goal" type="text" class='form-control' ng-model="ctrl.architecturalDecision.goal" required  />
+	</div>
+	
+	<div field-container label="Decision" invalid="form.decision.$invalid">
+		<input name="decision" type="text" class='form-control' ng-model="ctrl.architecturalDecision.decision" required  />
+	</div>
+	
+	<div field-container label="Reason" invalid="form.reason.$invalid">
+		<input name="reason" type="text" class='form-control' ng-model="ctrl.architecturalDecision.reason" required  />
+	</div>
+	
+	<div field-container label="Alternatives" invalid="form.alternatives.$invalid">
+		<input name="alternatives" type="text" class='form-control' ng-model="ctrl.architecturalDecision.alternatives" required  />
+	</div>
+	
+	<div field-container label="Priority" invalid="form.priority.$invalid">
+		<input name="priority" type="text" class='form-control' ng-model="ctrl.architecturalDecision.priority" required  />
+	</div>
+
+    <div>
+        <button crud-button="save" item="ctrl.architecturalDecision" is-disabled="form.$invalid"></button>
+        <span ng-if="ctrl.architecturalDecision.id"><button crud-button="delete" item="ctrl.architecturalDecision"></button></span>
+    </div>
+
+</form>

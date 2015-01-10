@@ -3,12 +3,24 @@
 <div flash-message ></div>
 
 <table class="table table-bordered table-striped">
-    <tr display-field label="Review" value="ctrl.requirement.review.toText"></tr>
+    <tr display-link label="Review" value="ctrl.requirement.review.toText" module="review" itemid="{{ctrl.requirement.review.id}}"></tr>
     <tr display-field label="Req Number" value="ctrl.requirement.reqNumber"></tr>
-    <tr display-field label="Quality Group" value="ctrl.requirement.qualityGroup.toText"></tr>
+    <tr display-link label="Quality Group" value="ctrl.requirement.qualityGroup.toText" module="qualityGroup" itemid="{{ctrl.requirement.qualityGroup.id}}"></tr>
     <tr display-field label="Name" value="ctrl.requirement.name"></tr>
     <tr display-field label="Description" value="ctrl.requirement.description"></tr>
-    <tr display-field label="Scenarios" value="ctrl.requirement.scenarios"></tr>
+    <tr>
+        <td><a href="scenario">Scenarios</a></td>
+        <td>
+            <table id="scenarioList" class="table table-striped table-bordered table-hover">
+                <tbody>
+                    <tr class="animate-repeat" ng-repeat="scenario in ctrl.requirement.scenarios">
+                        <td><a href="scenario#/show/{{scenario.id}}">{{scenario.id}}</a></td>
+                        <td>{{ scenario.scenarioNr }}</td>
+                        <td>{{ scenario.scenario }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
     <tr display-field label="Importance" value="ctrl.requirement.importance"></tr>
     <tr display-field label="Difficulty" value="ctrl.requirement.difficulty"></tr>
 </table>

@@ -6,17 +6,54 @@ class CustomMarshallerRegistrar {
     
     void registerMarshallers() {
 
+		JSON.registerObjectMarshaller(org.bessle.rm.ArchitecturalDecision) {
+			def map = [:]
+			map['id'] = it?.id
+			map['number'] = it?.number
+			map['name'] = it?.name
+			map['goal'] = it?.goal
+			map['decision'] = it?.decision
+			map['reason'] = it?.reason
+			map['alternatives'] = it?.alternatives
+			map['priority'] = it?.priority
+	    	map['toText'] = it?.toString()
+			return map 
+		}
+
+		
+
+		
+
+		JSON.registerObjectMarshaller(org.bessle.rm.Scenario) {
+			System.out.println("marshal Scenario ${it}")
+			def map = [:]
+			map['id'] = it?.id
+			map['requirement'] = it?.requirement // ? new RequirementId('id':it?.requirement.id) : null
+			map['scenarioNr'] = it?.scenarioNr
+			map['scenario'] = it?.scenario
+	    	map['toText'] = it?.toString()
+			return map 
+		}
+
+		JSON.registerObjectMarshaller(org.bessle.rm.RequirementId) {
+			System.out.println("marshal RequirementId ${it}")
+			def map = [:]
+			map['id'] = it?.id
+			return map
+		}
+
 		JSON.registerObjectMarshaller(org.bessle.rm.Review) {
+			System.out.println("marshal Review ${it}")
 			def map = [:]
 			map['id'] = it?.id
 			map['company'] = it?.company
 			map['projectName'] = it?.projectName
-			map['requirements'] = it?.requirements
 	    	map['toText'] = it?.toString()
 			return map 
 		}
 
 		JSON.registerObjectMarshaller(org.bessle.rm.Requirement) {
+			System.out.println("marshal Requirement ${it}")
 			def map = [:]
 			map['id'] = it?.id
 			map['review'] = it?.review
@@ -31,28 +68,8 @@ class CustomMarshallerRegistrar {
 			return map 
 		}
 
-		JSON.registerObjectMarshaller(org.bessle.rm.Scenario) {
-			def map = [:]
-			map['id'] = it?.id
-			map['requirement'] = it?.requirement
-			map['scenario'] = it?.scenario
-	    	map['toText'] = it?.toString()
-			return map 
-		}
-
-		
-
-		
-
-		
-
-		
-
-		
-
-		
-
 		JSON.registerObjectMarshaller(org.bessle.rm.QualityGroup) {
+			System.out.println("marshal QualityGroup ${it}")
 			def map = [:]
 			map['id'] = it?.id
 			map['code'] = it?.code
@@ -63,7 +80,5 @@ class CustomMarshallerRegistrar {
 			return map 
 		}
 
-		 
 	}
-
 }

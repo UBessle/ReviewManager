@@ -48,9 +48,9 @@
     <tbody>
         <tr class="animate-repeat" ng-repeat="item in ctrl.requirementList">
             <td><a href="#/show/{{item.id}}">{{item.id}}</a></td>
-			<td>{{ item.review.toText }}</td>
+			<td><a href="review#/show/{{item.review.id}}">{{ item.review.toText }}</a></td>
 			<td>{{ item.reqNumber }}</td>
-			<td>{{ item.qualityGroup.toText }}</td>
+			<td><a href="qualityGroup#/show/{{item.qualityGroup.id}}">{{ item.qualityGroup.toText }}</a></td>
 			<td>{{ item.name }}</td>
             <td>
                 <button crud-button="edit" item="item" ></button>

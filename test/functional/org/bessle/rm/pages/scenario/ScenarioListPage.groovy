@@ -11,9 +11,11 @@ class ScenarioListPage extends Page {
 
     static content = {
 		requirementFilter {$("select[ng-model='ctrl.filter.requirementId']")}
+		scenarioNrFilter {$("input[ng-model='ctrl.filter.scenarioNr']")}
 		scenarioFilter {$("input[ng-model='ctrl.filter.scenario']")}
 	
 		requirementSort { $("table#list th[property='requirement']") }
+		scenarioNrSort { $("table#list th[property='scenarioNr']") }
 		scenarioSort { $("table#list th[property='scenario']") }
     
 	    createButton { $("button[crud-button='create']") }

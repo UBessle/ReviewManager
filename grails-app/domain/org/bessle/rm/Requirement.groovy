@@ -33,4 +33,8 @@ class Requirement {
     double getActionAttractiveness() {
         return (2*importance + 11 - difficulty)/3
     }
+
+    String toString() {
+        return "${qualityGroup?.code}-${reqNumber}:${name}"
+    }
 }

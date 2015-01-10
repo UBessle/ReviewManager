@@ -3,7 +3,7 @@
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-		<title><g:layoutTitle default="Grails"/></title>
+		<title><g:layoutTitle default="ReviewManager"/></title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   		<asset:stylesheet src="application.css"/>
@@ -26,7 +26,7 @@
     <nav class="navbar navbar-default" role="navigation">
         <div class="container-fluid">
         <div class="navbar-header">
-            <g:link uri="/" class="navbar-brand">Angular Grails</g:link>
+            <g:link uri="/" class="navbar-brand">Review Manager</g:link>
         </div>
         <ul class="nav navbar-nav navbar-left">
             <li><g:link uri="/"><i class="fa fa-home"></i> Home</g:link></li>
@@ -35,7 +35,7 @@
 			</g:each>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="https://github.com/craigburke/lazybones-angular-grails"><i class="fa fa-github"></i> Github</a></li>
+            <li><a href="http://www.iteratec.de"><img src="assets/iteratec-logo_logon.jpg" height="24"></i> iteratec </a></li>
         </ul>
         </div>
     </nav>

@@ -3,6 +3,6 @@ import ${domainClassName}
 
 class ${resourceName}Controller extends PagedRestfulController {
     ${resourceName}Controller() {
-        super(${resourceName})
+        super(${domainClassName})
     }
 }

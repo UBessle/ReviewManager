@@ -7,3 +7,4 @@ target
 .lazybones
 *.class
 *.db
+/log/

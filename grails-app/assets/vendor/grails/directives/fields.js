@@ -32,6 +32,20 @@ function displayField() {
     }
 }
 
+function displayLink() {
+    return {
+        restrict: 'EA',
+        replace: true,
+        scope: {
+            label: '@',
+            module: '@',
+            itemid: '@',
+            value: '='
+        },
+        templateUrl: 'display-link.html'
+    }
+}
+
 function dateField() {
     return {
         replace: true,
@@ -49,4 +63,5 @@ function dateField() {
 angular.module('grails.directives.fields', ['ui.bootstrap'])
     .directive("fieldContainer", fieldContainer)
     .directive("displayField", displayField)
+    .directive("displayLink", displayLink)
     .directive("dateField", dateField);
