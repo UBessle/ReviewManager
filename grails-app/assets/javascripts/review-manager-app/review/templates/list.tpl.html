@@ -2,7 +2,10 @@
 
 <div class="clearfix">
 	<h2 class="pull-left">Review List</h2>
-	<div class="pull-right"><button crud-button="create" ></button></div>
+    <div class="pull-right">
+        <button crud-button="create" ></button>
+        <button crud-button="upload" >upload</button>
+    </div>
 </div>
 <div flash-message ></div>
 
@@ -11,18 +14,18 @@
     <h3 class="panel-title"><i class="fa fa-filter"></i> Filter List</h3>
   </div>
   <div class="panel-body">
-<div class="row">
-<form class="form">
-	<div class="form-group col-md-3">
-		<label for="filter.company">Company</label>
-		<input type="text" class='form-control' ng-model="ctrl.filter.company" ng-model-options="{ debounce: 300 }"  />
+    <div class="row">
+        <form class="form">
+            <div class="form-group col-md-3">
+                <label for="filter.company">Company</label>
+                <input type="text" class='form-control' ng-model="ctrl.filter.company" ng-model-options="{ debounce: 300 }"  />
+            </div>
+            <div class="form-group col-md-3">
+                <label for="filter.projectName">Project Name</label>
+                <input type="text" class='form-control' ng-model="ctrl.filter.projectName" ng-model-options="{ debounce: 300 }"  />
+            </div>
+        </form>
     </div>
-	<div class="form-group col-md-3">
-		<label for="filter.projectName">Project Name</label>
-		<input type="text" class='form-control' ng-model="ctrl.filter.projectName" ng-model-options="{ debounce: 300 }"  />
-    </div>
-</form>
-</div>
   </div>
 </div>
 
@@ -51,3 +54,4 @@
 </table>
 
 <div pagination total-items="ctrl.reviewList.getTotalCount()" items-per-page="ctrl.pageSize" ng-model="ctrl.page" ng-change="ctrl.load()"></div>
+

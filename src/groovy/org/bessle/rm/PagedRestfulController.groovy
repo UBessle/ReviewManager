@@ -5,6 +5,7 @@ import grails.gorm.PagedResultList
 import org.codehaus.groovy.grails.commons.GrailsClassUtils
 
 class PagedRestfulController<T> extends RestfulController<T> {
+	static allowedMethods = [save: "POST", update: "PUT", patch: "PATCH", delete: "DELETE"]
 
 	static responseFormats = ['json']
 

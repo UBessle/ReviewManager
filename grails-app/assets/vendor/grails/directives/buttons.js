@@ -24,6 +24,13 @@ function crudButton($location, $injector, defaultCrudResource, FlashService) {
                 }
             };
 
+            var uploadFn = function () {
+                $location.path("/upload");
+                if ($scope.afterAction) {
+                    $scope.afterAction();
+                }
+            };
+
             var editFn = function () {
                 $location.path("/edit/" + $scope.item.id);
                 if ($scope.afterAction) {
@@ -95,6 +102,9 @@ function crudButton($location, $injector, defaultCrudResource, FlashService) {
                     case "create" :
                         createFn();
                         break;
+                    case "upload" :
+                        uploadFn();
+                        break;
                     case "edit" :
                         editFn();
                         break;
@@ -111,6 +121,8 @@ function crudButton($location, $injector, defaultCrudResource, FlashService) {
             switch (attrs.crudButton) {
                 case "create":
                     return "create-button.html";
+                case "upload":
+                    return "upload-button.html";
                 case "edit":
                     return "edit-button.html";
                 case "delete":

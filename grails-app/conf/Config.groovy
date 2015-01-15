@@ -72,27 +72,33 @@ log4j.main = {
     error  'org.codehaus.groovy.grails.web.servlet',        // controllers
            'org.codehaus.groovy.grails.web.pages',          // GSP
            'org.codehaus.groovy.grails.web.sitemesh',       // layouts
-           'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
-           'org.codehaus.groovy.grails.web.mapping',        // URL mapping
+//           'org.codehaus.groovy.grails.web.mapping.filter', // URL mapping
+//           'org.codehaus.groovy.grails.web.mapping',        // URL mapping
            'org.codehaus.groovy.grails.commons',            // core / classloading
            'org.codehaus.groovy.grails.plugins',            // plugins
            'org.codehaus.groovy.grails.orm.hibernate',      // hibernate integration
            'org.springframework',
            'org.hibernate',
            'net.sf.ehcache.hibernate'
+
+    all 'org.codehaus.groovy.grails.web.mapping' // http://stackoverflow.com/questions/4789523/grails-and-debugging-urlmappings
 }
 
 log4j = {
     appenders {
-        file name:'file', file:'log/ReviewManager.log'
+        rollingFile name:'ReviewManagerLog',
+                    maxFileSize: '10MB',
+                    maxBackupConfig: 5,
+                    file:'log/ReviewManager.log'
     }
 
     root {
-        info 'stdout', 'file'
+        error 'stdout', 'ReviewManagerLog'
     }
 }
 
 grails.databinding.dateFormats = ["yyyy-MM-dd'T'hh:mm:ss'Z'", "yyyy-MM-dd'T'hh:mm:ss.SSS'Z'"]
 
 angular.pageSize = 250
-angular.dateFormat="MM/dd/yyyy"
+angular.dateFormat = "MM/dd/yyyy"
+reviewmanager.file.storage.location = "./tmp/upload"

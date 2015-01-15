@@ -23,6 +23,15 @@ angular.module('reviewManagerApp.review', [
                 } 
             }
         })
+        .when('/upload', {
+            controller: 'UploadCtrl as ctrl',
+            templateUrl: 'upload.html',
+            resolve: {
+                review: function(ReviewResource) {
+                    return ReviewResource.list();
+                }
+            }
+        })
         .when('/create', {
             controller: 'CreateEditCtrl as ctrl',
             templateUrl: 'create-edit.html',

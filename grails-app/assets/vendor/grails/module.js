@@ -10,6 +10,7 @@ angular.module('grails', [
     'ngRoute',
     'ngResource',
 	'ngAnimate',
+    'angularFileUpload',
     'ui.bootstrap',
     'grails.directives',
     'grails.services',

@@ -66,6 +66,10 @@ function CrudResourceFactory(rootUrl, $resource, $q, $http) {
             return chainPromise(deferred.promise, successFn, errorFn);
         };
 
+        crudResource.getUploadUrl = function() {
+            return baseUrl + "/*/upload";
+        };
+
         crudResource.delete = function(id, successFn, errorFn) {
             return getResourcePromise(resource.delete({id: id}), successFn, errorFn);
         };

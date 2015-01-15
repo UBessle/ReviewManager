@@ -6,7 +6,7 @@ class CustomMarshallerRegistrar {
     
     void registerMarshallers() {
 
-		JSON.registerObjectMarshaller(org.bessle.rm.ArchitecturalDecision) {
+		JSON.registerObjectMarshaller(ArchitecturalDecision) {
 			def map = [:]
 			map['id'] = it?.id
 			map['number'] = it?.number
@@ -20,12 +20,8 @@ class CustomMarshallerRegistrar {
 			return map 
 		}
 
-		
-
-		
-
-		JSON.registerObjectMarshaller(org.bessle.rm.Scenario) {
-			System.out.println("marshal Scenario ${it}")
+		JSON.registerObjectMarshaller(Scenario) {
+//			System.out.println("marshal Scenario ${it}")
 			def map = [:]
 			map['id'] = it?.id
 			map['requirement'] = it?.requirement // ? new RequirementId('id':it?.requirement.id) : null
@@ -35,15 +31,8 @@ class CustomMarshallerRegistrar {
 			return map 
 		}
 
-		JSON.registerObjectMarshaller(org.bessle.rm.RequirementId) {
-			System.out.println("marshal RequirementId ${it}")
-			def map = [:]
-			map['id'] = it?.id
-			return map
-		}
-
-		JSON.registerObjectMarshaller(org.bessle.rm.Review) {
-			System.out.println("marshal Review ${it}")
+		JSON.registerObjectMarshaller(Review) {
+//			System.out.println("marshal Review ${it}")
 			def map = [:]
 			map['id'] = it?.id
 			map['company'] = it?.company
@@ -52,8 +41,8 @@ class CustomMarshallerRegistrar {
 			return map 
 		}
 
-		JSON.registerObjectMarshaller(org.bessle.rm.Requirement) {
-			System.out.println("marshal Requirement ${it}")
+		JSON.registerObjectMarshaller(Requirement) {
+//			System.out.println("marshal Requirement ${it}")
 			def map = [:]
 			map['id'] = it?.id
 			map['review'] = it?.review
@@ -68,8 +57,8 @@ class CustomMarshallerRegistrar {
 			return map 
 		}
 
-		JSON.registerObjectMarshaller(org.bessle.rm.QualityGroup) {
-			System.out.println("marshal QualityGroup ${it}")
+		JSON.registerObjectMarshaller(QualityGroup) {
+//			System.out.println("marshal QualityGroup ${it}")
 			def map = [:]
 			map['id'] = it?.id
 			map['code'] = it?.code

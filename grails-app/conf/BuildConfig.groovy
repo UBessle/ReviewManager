@@ -48,6 +48,7 @@ grails.project.dependency.resolution = {
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
+//        mavenRepo "http://repo.desirableobjects.co.uk/"
     }
 
     dependencies {
@@ -55,7 +56,11 @@ grails.project.dependency.resolution = {
         // runtime 'mysql:mysql-connector-java:5.1.29'
         // runtime 'org.postgresql:postgresql:9.3-1101-jdbc41'
         test "org.grails:grails-datastore-test-support:1.0.2-grails-2.4"
+        compile (group:'org.apache.poi', name:'poi',version:'3.11')
+        compile (group:'org.apache.poi', name:'poi-ooxml',version:'3.11')
+        compile (group:'org.apache.poi', name:'ooxml-schemas',version:'1.1')
     }
+
     plugins {
         // plugins for the build system only
         build ":tomcat:7.0.55"
@@ -74,6 +79,9 @@ grails.project.dependency.resolution = {
         runtime ":hibernate4:4.3.6.1" // or ":hibernate:3.6.10.18"
 
         test ':geb:0.9.2'
+        compile ":excel-import:1.0.2"
+//        compile ":bootstrap-file-upload:2.1.2"
+//        compile ":ajax-uploader:1.1"
     }
 
 }
