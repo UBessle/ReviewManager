@@ -13,13 +13,17 @@
   <div class="panel-body">
 <div class="row">
 <form class="form">
-	<div class="form-group col-md-3">
-		<label for="filter.number">Number</label>
-		<input type="text" class='form-control' ng-model="ctrl.filter.number" ng-model-options="{ debounce: 300 }"  />
+	<div class="form-group col-md-1">
+		<label for="filter.adNumber">Number</label>
+		<input type="text" class='form-control' ng-model="ctrl.filter.adNumber" ng-model-options="{ debounce: 300 }"  />
     </div>
-	<div class="form-group col-md-3">
-		<label for="filter.name">Name</label>
-		<input type="text" class='form-control' ng-model="ctrl.filter.name" ng-model-options="{ debounce: 300 }"  />
+    <div class="form-group col-md-2">
+        <label for="filter.area">Area</label>
+        <input type="text" class='form-control' ng-model="ctrl.filter.area" ng-model-options="{ debounce: 300 }"  />
+    </div>
+    <div class="form-group col-md-2">
+        <label for="filter.name">Name</label>
+        <input type="text" class='form-control' ng-model="ctrl.filter.name" ng-model-options="{ debounce: 300 }"  />
     </div>
 	<div class="form-group col-md-3">
 		<label for="filter.goal">Goal</label>
@@ -28,6 +32,10 @@
 	<div class="form-group col-md-3">
 		<label for="filter.decision">Decision</label>
 		<input type="text" class='form-control' ng-model="ctrl.filter.decision" ng-model-options="{ debounce: 300 }"  />
+    </div>
+    <div class="form-group col-md-1">
+        <label for="filter.priority">Priority</label>
+        <input type="text" class='form-control' ng-model="ctrl.filter.priority" ng-model-options="{ debounce: 300 }"  />
     </div>
 </form>
 </div>
@@ -38,23 +46,23 @@
 
     <thead sort-header ng-model="ctrl.sort" on-sort="ctrl.reload()">
         <th sortable-column title="Id" property="id"></th>
-		<th sortable-column title="Number" property="number"></th>
-		<th sortable-column title="Name" property="name"></th>
+		<th sortable-column title="Number" property="adNumber"></th>
+        <th sortable-column title="Area" property="area"></th>
+        <th sortable-column title="Name" property="name"></th>
 		<th sortable-column title="Goal" property="goal"></th>
 		<th sortable-column title="Decision" property="decision"></th>
+        <th sortable-column title="Priority" property="priority"></th>
 		<th>action<th>
-        <th>&nbsp;</th>
     </thead>
     <tbody>
         <tr class="animate-repeat" ng-repeat="item in ctrl.architecturalDecisionList">
             <td><a href="#/show/{{item.id}}">{{item.id}}</a></td>
-			<td>{{ item.number }}</td>
-			<td>{{ item.name }}</td>
+			<td>{{ item.adNumber }}</td>
+            <td>{{ item.area }}</td>
+            <td>{{ item.name }}</td>
 			<td>{{ item.goal }}</td>
 			<td>{{ item.decision }}</td>
-            <td>
-                <button crud-button="edit" item="item" ></button>
-            </td>
+            <td>{{ item.priority }}</td>
             <td>
                 <button crud-button="delete" item="item" after-action="ctrl.reload()"></button>
             </td>

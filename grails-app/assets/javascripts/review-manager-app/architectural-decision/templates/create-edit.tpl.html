@@ -8,14 +8,18 @@
 
 <form name="form" class="form-horizontal" role="form" novalidate> 
 	
-	<div field-container label="Number" invalid="form.number.$invalid">
-		<input name="number" type="text" class='form-control' ng-model="ctrl.architecturalDecision.number" required  />
+	<div field-container label="Number" invalid="form.adNumber.$invalid">
+		<input name="adNumber" type="text" class='form-control' ng-model="ctrl.architecturalDecision.adNumber" required  />
 	</div>
-	
+
+	<div field-container label="Area" invalid="form.area.$invalid">
+		<input name="area" type="text" class='form-control' ng-model="ctrl.architecturalDecision.area" required  />
+	</div>
+
 	<div field-container label="Name" invalid="form.name.$invalid">
 		<input name="name" type="text" class='form-control' ng-model="ctrl.architecturalDecision.name" required  />
 	</div>
-	
+
 	<div field-container label="Goal" invalid="form.goal.$invalid">
 		<input name="goal" type="text" class='form-control' ng-model="ctrl.architecturalDecision.goal" required  />
 	</div>

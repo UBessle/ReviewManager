@@ -79,7 +79,7 @@ grails.project.dependency.resolution = {
         runtime ":hibernate4:4.3.6.1" // or ":hibernate:3.6.10.18"
 
         test ':geb:0.9.2'
-        compile ":excel-import:1.0.2"
+        compile ":excel-import:1.0.4"
 //        compile ":bootstrap-file-upload:2.1.2"
 //        compile ":ajax-uploader:1.1"
     }

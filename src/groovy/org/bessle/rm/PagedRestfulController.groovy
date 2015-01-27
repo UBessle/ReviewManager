@@ -14,6 +14,7 @@ class PagedRestfulController<T> extends RestfulController<T> {
 	}
 
 	def index(Integer max) {
+		log.info("${this.resourceName}.index() : params=${params}")
 		params.page = params.int('page') ?: 1
 		params.max = grailsApplication.config.angular.pageSize ?: 25
 		params.offset = ((params.page - 1) * params.max)
@@ -27,7 +28,7 @@ class PagedRestfulController<T> extends RestfulController<T> {
 	}
 
 	protected PagedResultList loadPagedResults(params) {
-        resource.createCriteria().list(max: params.max, offset: params.offset) {
+        List pagedResultList = resource.createCriteria().list(max: params.max, offset: params.offset) {
 			
 			params.filter?.each { String name, String value ->
                setDefaultCriteria(delegate, name, value)
@@ -37,12 +38,17 @@ class PagedRestfulController<T> extends RestfulController<T> {
               	order(params.sort, params.order == "asc" ? "asc" : "desc")
             }
         }
+		if (params.sort) {
+			return pagedResultList
+		} else {
+			return pagedResultList.sort { entry -> entry.toString() }
+		}
     }
 
     protected void setDefaultCriteria(criteria, String propertyName, String propertyValue) {
 		String declaredPropertyName = propertyName - 'Id'
 		Class propertyClass = GrailsClassUtils.getPropertyType(resource, declaredPropertyName)
-		
+		log.info("setDefaultCriteria(propertyName:${propertyName}, propertyValue:${propertyValue}, propertyClass:${propertyClass}")
 		if (!propertyClass) {
 			return
 		}	
@@ -56,7 +62,7 @@ class PagedRestfulController<T> extends RestfulController<T> {
 				case String:
 					criteria.ilike(propertyName, "%${propertyValue}%")
 					break
-                
+
 				case [Float, Integer, BigDecimal]:
 					if (propertyValue.isNumber()) {
 						criteria.eq(propertyName, propertyValue.asType(propertyClass))
@@ -65,7 +71,13 @@ class PagedRestfulController<T> extends RestfulController<T> {
 						criteria.eq(propertyName, null)
 					}
 					break
-                
+
+				case [float, double, int, long]:
+					if (propertyValue.isNumber()) {
+						criteria.eq(propertyName, propertyValue.asType(propertyClass))
+					}
+					break
+
 				case Date:
 					def dateFormats = grailsApplication.config.grails.databinding?.dateFormats
 					def dateProperty = params.date("filter.${propertyName}", dateFormats)

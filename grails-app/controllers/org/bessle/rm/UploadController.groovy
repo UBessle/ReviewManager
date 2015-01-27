@@ -12,12 +12,15 @@ class UploadController {
     def importService
 
     def save() {
+//        System.out.println("UploadController.save(): uploading ${request?.getFileNames()[0]} started")
+        log.info("UploadController.save(): uploading ${request?.getFileNames()[0]} started")
         String result = "unexpected error occured during uploading ${request?.getFileNames()[0]}"
 
         String fileLabel = params.fileLabel
         MultipartFile uploadedFile = null
         String fileName=""
         String newFileName="upload.xlsx"
+        File file = null
         try{
             if (request instanceof MultipartHttpServletRequest){
                 //Get the file's name from request
@@ -28,6 +31,7 @@ class UploadController {
                 log.info "UploadController.save() File name : ${uploadedFile.originalFilename}, File size : ${uploadedFile.size}"
             }
             if (uploadedFile.empty) {
+                log.warn("${uploadedFile.originalFilename} is empty and cannot be imported")
                 flash.error = g.message(code:'',default:'Empty cannot be uploaded')
                 return
             }
@@ -37,7 +41,7 @@ class UploadController {
             def fileStorageLocation = grailsApplication.config.reviewmanager.file.storage.location
 
             File dir = new File(fileStorageLocation)
-            File file = new File(fileStorageLocation, newFileName)
+            file = new File(fileStorageLocation, newFileName)
             //This support both overriding and creating new file
             //If two of these fails, that means got some internal issue. May be new file creation permissions issue
             if ( ( dir.exists() ||  dir.createNewFile()) &&
@@ -50,6 +54,7 @@ class UploadController {
                 }
                 flash.success = g.message(code:'', default:'File uploaded successfully')
             } else {
+                log.error("error while creating  ${file} at ${fileStorageLocation}")
                 throw new RuntimeException("error while creating  ${file} at ${fileStorageLocation}")
             }
         }

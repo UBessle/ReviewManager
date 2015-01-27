@@ -57,6 +57,7 @@ class ExcelParser {
         int cellType = cell.getCellType()
         if (readFormulaResult && (cellType == Cell.CELL_TYPE_FORMULA)) {
             cellType = cell.getCachedFormulaResultType()
+            log.info "set cachedFormulaResultType=${cellType} for cell row=${cell.rowIndex} column=${cell.columnIndex}"
         }
         switch (cellType) {
             case Cell.CELL_TYPE_STRING:

@@ -13,21 +13,29 @@
   <div class="panel-body">
 <div class="row">
 <form class="form">
-	<div class="form-group col-md-3">
+	<div class="form-group col-md-2">
 		<label for="filter.review">Review</label>
 		<select class="form-control" ng-model="ctrl.filter.reviewId" ng-options="item.id as item.toText for item in ctrl.reviewList" ng-model-options="{ debounce: 300 }"  ><option value="">-- Select Review--</option></select>
     </div>
-	<div class="form-group col-md-3">
-		<label for="filter.reqNumber">Req Number</label>
-		<input type="text" class='form-control' ng-model="ctrl.filter.reqNumber" ng-model-options="{ debounce: 300 }"  />
-    </div>
-	<div class="form-group col-md-3">
+	<div class="form-group col-md-2">
 		<label for="filter.qualityGroup">Quality Group</label>
 		<select class="form-control" ng-model="ctrl.filter.qualityGroupId" ng-options="item.id as item.toText for item in ctrl.qualityGroupList" ng-model-options="{ debounce: 300 }"  ><option value="">-- Select Quality Group--</option></select>
     </div>
-	<div class="form-group col-md-3">
+	<div class="form-group col-md-4">
 		<label for="filter.name">Name</label>
 		<input type="text" class='form-control' ng-model="ctrl.filter.name" ng-model-options="{ debounce: 300 }"  />
+    </div>
+    <div class="form-group col-md-1">
+        <label for="filter.importance">Importance</label>
+        <input type="text" class='form-control' ng-model="ctrl.filter.importance" ng-model-options="{ debounce: 300 }"  />
+    </div>
+    <div class="form-group col-md-1">
+        <label for="filter.difficulty">Difficulty</label>
+        <input type="text" class='form-control' ng-model="ctrl.filter.difficulty" ng-model-options="{ debounce: 300 }"  />
+    </div>
+    <div class="form-group col-md-1">
+        <label for="filter.reviewPriority">Rev.Priority</label>
+        <input type="text" class='form-control' ng-model="ctrl.filter.reviewPriority" ng-model-options="{ debounce: 300 }"  />
     </div>
 </form>
 </div>
@@ -41,9 +49,11 @@
 		<th sortable-column title="Review" property="review"></th>
 		<th sortable-column title="Req Number" property="reqNumber"></th>
 		<th sortable-column title="Quality Group" property="qualityGroup"></th>
-		<th sortable-column title="Name" property="name"></th>
+        <th sortable-column title="Name" property="name"></th>
+        <th sortable-column title="Importance" property="importance"></th>
+        <th sortable-column title="Difficulty" property="difficulty"></th>
+        <th sortable-column title="Review Priority" property="reviewPriority"></th>
 		<th>action<th>
-        <th>&nbsp;</th>
     </thead>
     <tbody>
         <tr class="animate-repeat" ng-repeat="item in ctrl.requirementList">
@@ -51,13 +61,11 @@
 			<td><a href="review#/show/{{item.review.id}}">{{ item.review.toText }}</a></td>
 			<td>{{ item.reqNumber }}</td>
 			<td><a href="qualityGroup#/show/{{item.qualityGroup.id}}">{{ item.qualityGroup.toText }}</a></td>
-			<td>{{ item.name }}</td>
-            <td>
-                <button crud-button="edit" item="item" ></button>
-            </td>
-            <td>
-                <button crud-button="delete" item="item" after-action="ctrl.reload()"></button>
-            </td>
+            <td>{{ item.name }}</td>
+            <td>{{ item.importance }}</td>
+            <td>{{ item.difficulty }}</td>
+            <td>{{ item.reviewPriority }}</td>
+            <td><button crud-button="delete" item="item" after-action="ctrl.reload()"></button></td>
         </tr>
     </tbody>
 </table>

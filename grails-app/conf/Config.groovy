@@ -81,6 +81,7 @@ log4j.main = {
            'org.hibernate',
            'net.sf.ehcache.hibernate'
 
+
     all 'org.codehaus.groovy.grails.web.mapping' // http://stackoverflow.com/questions/4789523/grails-and-debugging-urlmappings
 }
 
@@ -93,8 +94,11 @@ log4j = {
     }
 
     root {
-        error 'stdout', 'ReviewManagerLog'
+        info 'stdout', 'ReviewManagerLog'
     }
+
+    debug "grails.app"
+    debug "org.bessle"
 }
 
 grails.databinding.dateFormats = ["yyyy-MM-dd'T'hh:mm:ss'Z'", "yyyy-MM-dd'T'hh:mm:ss.SSS'Z'"]

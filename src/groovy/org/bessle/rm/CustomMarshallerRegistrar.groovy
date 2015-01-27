@@ -9,12 +9,15 @@ class CustomMarshallerRegistrar {
 		JSON.registerObjectMarshaller(ArchitecturalDecision) {
 			def map = [:]
 			map['id'] = it?.id
-			map['number'] = it?.number
+			map['review'] = it?.review
+			map['adNumber'] = it?.adNumber
+			map['area'] = it?.area
 			map['name'] = it?.name
 			map['goal'] = it?.goal
 			map['decision'] = it?.decision
 			map['reason'] = it?.reason
 			map['alternatives'] = it?.alternatives
+			map['remarks'] = it?.remarks
 			map['priority'] = it?.priority
 	    	map['toText'] = it?.toString()
 			return map 
@@ -42,7 +45,7 @@ class CustomMarshallerRegistrar {
 		}
 
 		JSON.registerObjectMarshaller(Requirement) {
-//			System.out.println("marshal Requirement ${it}")
+//			log.debug("marshal Requirement ${it}")
 			def map = [:]
 			map['id'] = it?.id
 			map['review'] = it?.review
@@ -53,7 +56,10 @@ class CustomMarshallerRegistrar {
 			map['scenarios'] = it?.scenarios
 			map['importance'] = it?.importance
 			map['difficulty'] = it?.difficulty
+			map['reviewPriority'] = it?.reviewPriority
+			map['actionAttractiveness'] = it?.actionAttractiveness
 	    	map['toText'] = it?.toString()
+//			log.debug("result map from marshalling: ${map}")
 			return map 
 		}
 
